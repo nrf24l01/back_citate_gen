@@ -47,16 +47,6 @@ services:
       interval: 5s
       retries: 5
     command: ["postgres", "-c", "listen_addresses=*"]
-  
-  watchtower-quoter-backend:
-    image: containrrr/watchtower
-    container_name: watchtower-quoter-backend
-    restart: unless-stopped
-    environment:
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_POLL_INTERVAL=300
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   postgres_quoter_data:
