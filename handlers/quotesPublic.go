@@ -55,6 +55,15 @@ func (h *Handler) PublicGetList(c echo.Context) error {
 		})
 	}
 
+	if response == nil {
+		response = make([]struct {
+			ID     string   `json:"id"`
+			Text   string   `json:"text"`
+			Author string   `json:"author"`
+			Tags   []string `json:"tags"`
+		}, 0)
+	}
+
 	return c.JSON(http.StatusOK, response)
 }
 

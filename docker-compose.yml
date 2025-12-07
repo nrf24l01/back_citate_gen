@@ -1,6 +1,6 @@
 networks:
-  quoter_net:
-    external: true
+  quoter-back-net:
+    driver: bridge
 
 services:
   quoter-backend:
@@ -13,9 +13,9 @@ services:
       start_period: 10s
     restart: "no"
     networks:
-      - quoter_net
+      - quoter-back-net
     ports:
-      - "3001:1323"
+      - "7001:1323"
     env_file:
       - .env
     environment:
@@ -39,7 +39,7 @@ services:
     expose:
       - "5432"
     networks:
-      - quoter_net
+      - quoter-back-net
     volumes:
       - postgres_quoter_data:/var/lib/postgresql/data
     healthcheck:
