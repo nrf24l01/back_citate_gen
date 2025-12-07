@@ -29,7 +29,7 @@ services:
         condition: service_healthy
 
   postgres-quoter:
-    image: postgres:latest
+    image: postgres:17
     restart: always
     environment:
       POSTGRES_USER: postgres
